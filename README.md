@@ -65,6 +65,13 @@ Multi-row-incremental (range-based, copying) remap took 650 ms
 ```
 
 
+## Remarks
+
+* The benchmark code actually keeps the whole _map_ in memory (`cv::Mat_<cv::Vec<float, 2>> mapping`).
+  This is for code simplicity.
+  The benchmark loops access the `mapping` incrementally, so it could easily be computed on the fly.
+
+
 ## Analysis
 
 * `remap()` is implemented using multi-core speedups.
